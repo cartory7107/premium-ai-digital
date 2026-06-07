@@ -39,11 +39,30 @@ export function Portfolio() {
 
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
+  const [user, setUser] = useState<{ email?: string; user_metadata?: { full_name?: string; avatar_url?: string } } | null>(null);
+  const navigate = useNavigate();
+
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", fn);
     return () => window.removeEventListener("scroll", fn);
   }, []);
+
+  useEffect(() => {
+    supabase.auth.getUser().then(({ data }) => {
+      setUser(data.user ?? null);
+    });
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+    });
+    return () => subscription.unsubscribe();
+  }, []);
+
+  const handleSignOut = async () => {
+    await supabase.auth.signOut();
+    navigate({ to: "/" });
+  };
+
   return (
     <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled ? "py-3" : "py-5"}`}>
       <div className={`mx-auto max-w-6xl px-4 ${scrolled ? "" : ""}`}>
@@ -59,9 +78,40 @@ function Nav() {
               <a key={n.href} href={n.href} className="hover:text-foreground transition-colors">{n.label}</a>
             ))}
           </nav>
-          <a href="#contact" className="hidden sm:inline-flex items-center gap-2 rounded-xl bg-gradient-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:opacity-90 transition">
-            Book a call <ArrowRight className="h-4 w-4" />
-          </a>
+          <div className="flex items-center gap-3">
+            {user ? (
+              <div className="flex items-center gap-3">
+                <div className="hidden sm:flex items-center gap-2 text-sm text-muted-foreground">
+                  {user.user_metadata?.avatar_url ? (
+                    <img src={user.user_metadata.avatar_url} alt="" className="h-7 w-7 rounded-full" />
+                  ) : (
+                    <div className="grid place-items-center h-7 w-7 rounded-full bg-white/10">
+                      <User className="h-4 w-4" />
+                    </div>
+                  )}
+                  <span className="max-w-[120px] truncate">{user.user_metadata?.full_name || user.email}</span>
+                </div>
+                <button
+                  onClick={handleSignOut}
+                  className="inline-flex items-center gap-1.5 rounded-lg glass px-3 py-2 text-xs font-medium hover:bg-white/10 transition"
+                  title="Sign out"
+                >
+                  <LogOut className="h-3.5 w-3.5" />
+                  <span className="hidden sm:inline">Sign out</span>
+                </button>
+              </div>
+            ) : (
+              <Link
+                to="/auth"
+                className="inline-flex items-center gap-2 rounded-xl bg-gradient-primary px-4 py-2 text-sm font-semibold text-primary-foreground hover:opacity-90 transition"
+              >
+                Sign in <ArrowRight className="h-4 w-4" />
+              </Link>
+            )}
+            <a href="#contact" className="hidden sm:inline-flex items-center gap-2 rounded-xl glass px-4 py-2 text-sm font-semibold hover:bg-white/10 transition">
+              Book a call
+            </a>
+          </div>
         </div>
       </div>
     </header>
