@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import heroBg from "@/assets/hero-bg.jpg";
+import portraitAsset from "@/assets/portrait-hamza.png.asset.json";
 
 const NAV = [
   { label: "About", href: "#about" },
@@ -157,24 +158,18 @@ function Hero() {
           <div className="relative animate-float">
             <div className="absolute -inset-6 bg-gradient-primary blur-3xl opacity-30 rounded-full" />
             <div className="relative rounded-3xl overflow-hidden glass p-2">
-              <div
-                role="img"
-                aria-label="Hamza Carter personal brand portrait placeholder"
-                className="relative grid min-h-[520px] place-items-center overflow-hidden rounded-2xl"
-                style={{
-                  backgroundImage:
-                    "radial-gradient(circle at 30% 20%, oklch(0.72 0.18 285 / 0.35), transparent 34%), linear-gradient(135deg, oklch(0.2 0.03 260), oklch(0.08 0.02 260))",
-                }}
-              >
-                <div className="absolute inset-8 rounded-full border border-white/10 blur-sm" />
-                <div className="absolute -left-16 top-20 h-56 w-56 rounded-full bg-primary/25 blur-3xl" />
-                <div className="absolute -right-20 bottom-16 h-64 w-64 rounded-full bg-accent/20 blur-3xl" />
-                <div className="relative text-center">
-                  <div className="mx-auto grid h-36 w-36 place-items-center rounded-full border border-white/15 bg-white/10 text-5xl font-bold text-white shadow-2xl backdrop-blur">
-                    HC
-                  </div>
-                  <div className="mt-6 font-display text-4xl font-bold text-white">Hamza Carter</div>
-                  <div className="mt-2 text-sm font-medium uppercase tracking-[0.35em] text-white/60">Digital Marketing &amp; AI</div>
+              <div className="relative min-h-[520px] overflow-hidden rounded-2xl">
+                <div className="absolute -left-16 top-20 h-56 w-56 rounded-full bg-primary/25 blur-3xl z-0" />
+                <div className="absolute -right-20 bottom-16 h-64 w-64 rounded-full bg-accent/20 blur-3xl z-0" />
+                <img
+                  src={portraitAsset.url}
+                  alt="Hamza Carter — Digital Marketing & AI Integration Specialist"
+                  className="relative z-10 h-full w-full object-cover rounded-2xl"
+                  loading="eager"
+                />
+                <div className="absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-6">
+                  <div className="font-display text-3xl font-bold text-white">Hamza Carter</div>
+                  <div className="mt-1 text-xs font-medium uppercase tracking-[0.35em] text-white/70">Digital Marketing &amp; AI</div>
                 </div>
               </div>
             </div>
