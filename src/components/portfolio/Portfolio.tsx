@@ -7,7 +7,6 @@ import {
   LogOut, User,
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
-import portrait from "@/assets/portrait.jpg";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const NAV = [
@@ -71,7 +70,7 @@ function Nav() {
             <span className="grid place-items-center h-8 w-8 rounded-lg bg-gradient-primary glow">
               <Sparkles className="h-4 w-4 text-primary-foreground" />
             </span>
-            Alex<span className="text-primary">.</span>
+            Hamza<span className="text-primary">.</span>
           </a>
           <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
             {NAV.map((n) => (
@@ -136,7 +135,7 @@ function Hero() {
               <span className="text-gradient">digital marketing &amp; AI automation</span>
             </h1>
             <p className="mt-6 text-lg text-muted-foreground max-w-xl leading-relaxed">
-              I'm Alex — a Digital Marketing Specialist and AI Integrator with 5+ years of experience
+              I'm Hamza — a Digital Marketing Specialist and AI Integrator with 5+ years of experience
               and 700+ shipped projects. I build growth systems that compound: paid acquisition, SEO,
               and AI-powered workflows that work while you sleep.
             </p>
@@ -158,7 +157,26 @@ function Hero() {
           <div className="relative animate-float">
             <div className="absolute -inset-6 bg-gradient-primary blur-3xl opacity-30 rounded-full" />
             <div className="relative rounded-3xl overflow-hidden glass p-2">
-              <img src={portrait} alt="Alex Carter portrait" width={900} height={1100} className="rounded-2xl w-full h-auto" />
+              <div
+                role="img"
+                aria-label="Hamza Carter personal brand portrait placeholder"
+                className="relative grid min-h-[520px] place-items-center overflow-hidden rounded-2xl"
+                style={{
+                  backgroundImage:
+                    "radial-gradient(circle at 30% 20%, oklch(0.72 0.18 285 / 0.35), transparent 34%), linear-gradient(135deg, oklch(0.2 0.03 260), oklch(0.08 0.02 260))",
+                }}
+              >
+                <div className="absolute inset-8 rounded-full border border-white/10 blur-sm" />
+                <div className="absolute -left-16 top-20 h-56 w-56 rounded-full bg-primary/25 blur-3xl" />
+                <div className="absolute -right-20 bottom-16 h-64 w-64 rounded-full bg-accent/20 blur-3xl" />
+                <div className="relative text-center">
+                  <div className="mx-auto grid h-36 w-36 place-items-center rounded-full border border-white/15 bg-white/10 text-5xl font-bold text-white shadow-2xl backdrop-blur">
+                    HC
+                  </div>
+                  <div className="mt-6 font-display text-4xl font-bold text-white">Hamza Carter</div>
+                  <div className="mt-2 text-sm font-medium uppercase tracking-[0.35em] text-white/60">Digital Marketing &amp; AI</div>
+                </div>
+              </div>
             </div>
             <FloatingCard className="absolute -left-6 top-10" icon={<TrendingUp className="h-5 w-5 text-accent" />} title="+312%" subtitle="Avg. ROAS uplift" />
             <FloatingCard className="absolute -right-4 bottom-16" icon={<Bot className="h-5 w-5 text-primary" />} title="24/7" subtitle="AI support live" />
@@ -392,9 +410,9 @@ function Skills() {
 
 function Testimonials() {
   const t = [
-    { q: "Alex rebuilt our paid funnel from scratch and tripled revenue in a single quarter. He's the most strategic marketer we've worked with.", n: "Sarah Lin", r: "Founder, Northwave Skincare" },
+    { q: "Hamza rebuilt our paid funnel from scratch and tripled revenue in a single quarter. He's the most strategic marketer we've worked with.", n: "Sarah Lin", r: "Founder, Northwave Skincare" },
     { q: "The AI support agent he shipped resolves the majority of our tickets. It paid for itself in under 30 days.", n: "Marcus Hale", r: "Head of CX, Pulsar SaaS" },
-    { q: "Equal parts strategist and operator. Alex understands the numbers AND the tech — a rare combo.", n: "Ivana Petrova", r: "CMO, Helio Studio" },
+    { q: "Equal parts strategist and operator. Hamza understands the numbers AND the tech — a rare combo.", n: "Ivana Petrova", r: "CMO, Helio Studio" },
   ];
   return (
     <section id="testimonials" className="py-24 md:py-32">
@@ -464,9 +482,9 @@ function Contact() {
                 and decide together if we're a good fit.
               </p>
               <div className="mt-8 space-y-3">
-                <ContactRow icon={<Calendar className="h-4 w-4" />} label="Book a call" value="cal.com/alexcarter" href="https://cal.com" />
-                <ContactRow icon={<Mail className="h-4 w-4" />} label="Email" value="alex@alexcarter.com" href="mailto:alex@alexcarter.com" />
-                <ContactRow icon={<Linkedin className="h-4 w-4" />} label="LinkedIn" value="/in/alexcarter" href="https://linkedin.com" />
+                <ContactRow icon={<Calendar className="h-4 w-4" />} label="Book a call" value="cal.com/hamzacarter" href="https://cal.com" />
+                <ContactRow icon={<Mail className="h-4 w-4" />} label="Email" value="hamza@hamzacarter.com" href="mailto:hamza@hamzacarter.com" />
+                <ContactRow icon={<Linkedin className="h-4 w-4" />} label="LinkedIn" value="/in/hamzacarter" href="https://linkedin.com" />
                 <ContactRow icon={<Phone className="h-4 w-4" />} label="WhatsApp" value="+1 (555) 010-7788" href="https://wa.me/15550107788" />
               </div>
             </div>
@@ -521,14 +539,14 @@ function Footer() {
           <span className="grid place-items-center h-7 w-7 rounded-md bg-gradient-primary">
             <Sparkles className="h-3.5 w-3.5 text-primary-foreground" />
           </span>
-          Alex Carter
+          Hamza Carter
         </div>
         <div className="flex items-center gap-5 text-muted-foreground text-sm">
           <a href="https://linkedin.com" className="hover:text-foreground transition"><Linkedin className="h-4 w-4" /></a>
-          <a href="mailto:alex@alexcarter.com" className="hover:text-foreground transition"><Mail className="h-4 w-4" /></a>
+          <a href="mailto:hamza@hamzacarter.com" className="hover:text-foreground transition"><Mail className="h-4 w-4" /></a>
           <a href="https://wa.me/15550107788" className="hover:text-foreground transition"><Phone className="h-4 w-4" /></a>
         </div>
-        <div className="text-xs text-muted-foreground">© {new Date().getFullYear()} Alex Carter. Crafted with intent.</div>
+        <div className="text-xs text-muted-foreground">© {new Date().getFullYear()} Hamza Carter. Crafted with intent.</div>
       </div>
     </footer>
   );
