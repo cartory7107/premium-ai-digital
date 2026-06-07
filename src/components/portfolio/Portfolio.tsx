@@ -163,12 +163,12 @@ function Hero() {
                 <div className="absolute -right-20 bottom-16 h-64 w-64 rounded-full bg-accent/20 blur-3xl z-0" />
                 <img
                   src={portraitAsset.url}
-                  alt="Hamza Carter — Digital Marketing & AI Integration Specialist"
+                  alt="Hamza — Digital Marketing & AI Integration Specialist"
                   className="relative z-10 h-full w-full object-cover rounded-2xl"
                   loading="eager"
                 />
                 <div className="absolute inset-x-0 bottom-0 z-20 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-6">
-                  <div className="font-display text-3xl font-bold text-white">Hamza Carter</div>
+                  <div className="font-display text-3xl font-bold text-white">Hamza</div>
                   <div className="mt-1 text-xs font-medium uppercase tracking-[0.35em] text-white/70">Digital Marketing &amp; AI</div>
                 </div>
               </div>
@@ -534,14 +534,14 @@ function Footer() {
           <span className="grid place-items-center h-7 w-7 rounded-md bg-gradient-primary">
             <Sparkles className="h-3.5 w-3.5 text-primary-foreground" />
           </span>
-          Hamza Carter
+          Hamza
         </div>
         <div className="flex items-center gap-5 text-muted-foreground text-sm">
           <a href="https://linkedin.com" className="hover:text-foreground transition"><Linkedin className="h-4 w-4" /></a>
           <a href="mailto:hamza@hamzacarter.com" className="hover:text-foreground transition"><Mail className="h-4 w-4" /></a>
           <a href="https://wa.me/15550107788" className="hover:text-foreground transition"><Phone className="h-4 w-4" /></a>
         </div>
-        <div className="text-xs text-muted-foreground">© {new Date().getFullYear()} Hamza Carter. Crafted with intent.</div>
+        <div className="text-xs text-muted-foreground">© {new Date().getFullYear()} Hamza. Crafted with intent.</div>
       </div>
     </footer>
   );
