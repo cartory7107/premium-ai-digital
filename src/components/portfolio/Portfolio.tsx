@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
+import { Link, useNavigate } from "@tanstack/react-router";
 import {
   ArrowRight, Sparkles, Search, Megaphone, Share2, Mail, Bot, Workflow,
   MessageSquare, BarChart3, Check, Star, Linkedin, Phone, Send, Calendar,
   TrendingUp, Globe, Users, Award, Zap, Target, ShieldCheck, LineChart,
+  LogOut, User,
 } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 import portrait from "@/assets/portrait.jpg";
 import heroBg from "@/assets/hero-bg.jpg";
 
