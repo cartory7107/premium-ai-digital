@@ -8,6 +8,7 @@ import {
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import heroBg from "@/assets/hero-bg.jpg";
+import heroPortrait from "@/assets/portrait.jpg";
 
 const NAV = [
   { label: "About", href: "#about" },
@@ -157,26 +158,13 @@ function Hero() {
           <div className="relative animate-float">
             <div className="absolute -inset-6 bg-gradient-primary blur-3xl opacity-30 rounded-full" />
             <div className="relative rounded-3xl overflow-hidden glass p-2">
-              <div
-                role="img"
-                aria-label="Hamza Carter personal brand portrait placeholder"
-                className="relative grid min-h-[520px] place-items-center overflow-hidden rounded-2xl"
-                style={{
-                  backgroundImage:
-                    "radial-gradient(circle at 30% 20%, oklch(0.72 0.18 285 / 0.35), transparent 34%), linear-gradient(135deg, oklch(0.2 0.03 260), oklch(0.08 0.02 260))",
-                }}
-              >
-                <div className="absolute inset-8 rounded-full border border-white/10 blur-sm" />
-                <div className="absolute -left-16 top-20 h-56 w-56 rounded-full bg-primary/25 blur-3xl" />
-                <div className="absolute -right-20 bottom-16 h-64 w-64 rounded-full bg-accent/20 blur-3xl" />
-                <div className="relative text-center">
-                  <div className="mx-auto grid h-36 w-36 place-items-center rounded-full border border-white/15 bg-white/10 text-5xl font-bold text-white shadow-2xl backdrop-blur">
-                    HC
-                  </div>
-                  <div className="mt-6 font-display text-4xl font-bold text-white">Hamza Carter</div>
-                  <div className="mt-2 text-sm font-medium uppercase tracking-[0.35em] text-white/60">Digital Marketing &amp; AI</div>
-                </div>
-              </div>
+              <img
+                src={heroPortrait}
+                alt="Hamza Carter portrait"
+                className="h-[520px] w-full rounded-2xl object-cover object-top shadow-2xl"
+                width={900}
+                height={1100}
+              />
             </div>
             <FloatingCard className="absolute -left-6 top-10" icon={<TrendingUp className="h-5 w-5 text-accent" />} title="+312%" subtitle="Avg. ROAS uplift" />
             <FloatingCard className="absolute -right-4 bottom-16" icon={<Bot className="h-5 w-5 text-primary" />} title="24/7" subtitle="AI support live" />
